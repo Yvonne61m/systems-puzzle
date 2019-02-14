@@ -12,3 +12,7 @@ class Items(Base):
     quantity = Column(Integer)
     description = Column(String(256))
     date_added = Column(DateTime())
+
+
+    def __repr__(self):
+        return "id is {0}, name is {1}, quantity is {2}, description is {3}, date added is {4}.".format(self.id, self.name, self.quantity, self.description, self.date_added)

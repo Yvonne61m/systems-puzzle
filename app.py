@@ -9,6 +9,7 @@ from database import db_session
 app = Flask(__name__)
 app.secret_key = os.environ['APP_SECRET_KEY']
 
+
 @app.route("/", methods=('GET', 'POST'))
 def add_item():
     form = ItemForm()
@@ -18,6 +19,7 @@ def add_item():
         db_session.commit()
         return redirect(url_for('success'))
     return render_template('index.html', form=form)
+
 
 @app.route("/success")
 def success():
@@ -30,4 +32,4 @@ def success():
   
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', port=5001)
